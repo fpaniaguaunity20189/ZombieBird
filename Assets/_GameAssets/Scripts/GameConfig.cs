@@ -1,4 +1,6 @@
-﻿
+﻿/**
+ *  Contiene informacion de contexto del Juego
+ * */
 public class GameConfig {
     private static bool jugando = true;
     public static bool IsPlaying()
