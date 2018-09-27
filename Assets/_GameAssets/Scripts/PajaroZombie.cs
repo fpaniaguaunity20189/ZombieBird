@@ -8,8 +8,9 @@ public class PajaroZombie : MonoBehaviour {
     [SerializeField] ParticleSystem prefabExplosion;
     [SerializeField] Text marcadorPuntos;
     [SerializeField] float fuerza = 10f;
+    [SerializeField] AudioSource sonidoExplosion;
+    private AudioSource sonidoPuntuacion;
 
-    private AudioSource audioSource;
     private Rigidbody rb;
     private int puntos = 0;
 
@@ -17,8 +18,8 @@ public class PajaroZombie : MonoBehaviour {
     {
         GameConfig.ArrancaJuego();
         rb = GetComponent<Rigidbody>();
+        sonidoPuntuacion = GetComponent<AudioSource>();
         ActualizarMarcador();
-        audioSource = GetComponent<AudioSource>();
     }
 
     void Update () {
@@ -30,14 +31,15 @@ public class PajaroZombie : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
+        sonidoPuntuacion.Play();
         puntos++;
         ActualizarMarcador();
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        //Play sound
-        audioSource.Play();
+        //Sonido de la explosion
+        sonidoExplosion.Play();
 
         //DETENER EL JUEGO
         GameConfig.ParaJuego();

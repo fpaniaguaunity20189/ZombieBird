@@ -5,12 +5,12 @@ using UnityEngine;
 public class PipeGenerator : MonoBehaviour {
 
     [SerializeField] Transform prefabTuberia;
-
+    [SerializeField] float ratioGeneracionTuberias = 2f;
 
 	// Use this for initialization
 	void Start () {
 
-        InvokeRepeating("GeneratePipe", 0, 2);
+        InvokeRepeating("GeneratePipe", 0, ratioGeneracionTuberias);
 	}
 	
     void GeneratePipe()
