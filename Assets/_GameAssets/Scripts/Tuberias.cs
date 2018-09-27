@@ -7,7 +7,7 @@ public class Tuberias : MonoBehaviour {
     [SerializeField] private int speed = 3;
 
 	void Start () {
-        float factorPosicion = Random.RandomRange(-1, 1);
+        float factorPosicion = Random.Range(-1, 1);
         this.transform.position = new Vector3(
             transform.position.x, 
             transform.position.y+factorPosicion,
